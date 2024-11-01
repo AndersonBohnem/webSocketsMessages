@@ -1,0 +1,201 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #000000;
+}
+
+/* Estilo do título */
+header h1 {
+    font-size: 2rem;
+    margin-right: 20px;
+    text-align: left;
+    color: #ffffff;
+}
+
+/* Estilo da imagem */
+header img {
+    width: 10vw;
+    max-width: 100%;
+    height: auto;
+}
+
+/* ----------------------HEADER ACIMA-------------------------*/
+/* Estilos gerais para o container */
+.container {
+    display: flex;
+}
+
+/* Estilo para a seção de conversas */
+.conversas {
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.conversas h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+/* Lista de conversas */
+.conversas-list {
+    margin-bottom: 15px;
+}
+
+/* Estilo dos itens de conversa */
+.conversa-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 4px; 
+    background-color: #f9f9f9; 
+    cursor: pointer; 
+}
+
+.conversa-item:hover {
+    background-color: #e6e6e6; 
+}
+
+/* Estilo do botão de adicionar conversa */
+.add-conversa {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    border-radius: 4px; 
+    font-size: 1.5rem; 
+    cursor: pointer; 
+}
+
+.add-conversa:hover {
+    background-color: #45a049;
+}
+
+/* Estilo para o aside */
+.conversa-detalhe {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4; 
+    border-left: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.conversa-detalhe h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+/* Conteúdo da conversa */
+#conversationContent {
+    padding: 10px;
+    background-color: white; 
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+
+/*-----------------------------Mensagens------------------- */
+
+/* Estilos gerais para o container */
+.container {
+    display: flex;
+}
+
+/* Estilo para a seção de conversas */
+.conversas {
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.conversas h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+/* Lista de conversas */
+.conversas-list {
+    margin-bottom: 15px;
+}
+
+/* Estilo dos itens de conversa */
+.conversa-item {
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+.conversa-item:hover {
+    background-color: #e6e6e6;
+}
+
+/* Estilo para o aside */
+.conversa-detalhe {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-left: 1px solid #cccccc;
+    border-radius: 8px;
+}
+
+.conversa-detalhe h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+/* Conteúdo da conversa */
+#conversationContent {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* Estilo para o container da mensagem */
+.mensagem-container {
+    display: flex;
+    margin-top: 20px;
+}
+
+/* Estilo para o campo de entrada de mensagem */
+.mensagem-container input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+/* Estilo do botão de enviar mensagem */
+.send-message {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.send-message:hover {
+    background-color: #45a049;
+}

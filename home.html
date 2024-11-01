@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewChat</title>
+    <link rel="stylesheet" href="css/home.css">
+</head>
+
+<header>
+    <h1>Bem vindo ao </h1>
+    <img src="img/logo.jpg" alt="Foto da Logo">
+</header>
+
+<div class="container">
+    <section class="conversas">
+        <h2>Conversas</h2>
+        <div class="conversas-list">
+            <div class="conversa-item" onclick="selectConversation('ChatOne')">ChatOne</div>
+            <div class="conversa-item" onclick="selectConversation('ChatTwo')">ChatTwo</div>
+            <div class="conversa-item" onclick="selectConversation('ChatThree')">ChatThree</div>
+        </div>
+        <button class="add-conversa">+</button>
+    </section>
+
+    <aside class="conversa-detalhe">
+        <h2>Detalhes da Conversa</h2>
+        <div id="conversationContent">Selecione uma conversa para ver os detalhes.</div>
+
+        <div class="mensagem-container">
+            <input type="text" id="messageInput" placeholder="Digite sua mensagem..." />
+            <button class="send-message" onclick="sendMessage()">Enviar</button>
+        </div>
+    </aside>
+</div>
+
+<body>
+    
+</body>
+    <script src="js/home.js"></script>
+</html>
