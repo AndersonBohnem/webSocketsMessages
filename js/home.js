@@ -49,6 +49,7 @@ function selectConversation(conversa) {
     localStorage.setItem('currentChat', currentChat);
 
     const conversationContent = document.getElementById('conversationContent');
+    document.getElementById("chatName").textContent = currentChat;
     conversationContent.innerHTML = ''; 
 
     loadMessages();
@@ -57,6 +58,23 @@ function selectConversation(conversa) {
         messages[currentChat].forEach(msg => displayMessage(currentChat, msg));
     } else {
         conversationContent.innerHTML = `<div>Selecione uma mensagem para ver os detalhes.</div>`;
+    }
+}
+
+document.getElementById("messageInput").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        sendMessage(); // Chama a função de envio da mensagem
+    }
+});
+
+function clearMessages() {
+    let messagesCurrentChat = "messages_" + currentChat;
+    console.log(messagesCurrentChat)
+    localStorage.removeItem(messagesCurrentChat);
+
+    const conversationContent = document.getElementById("conversationContent");
+    if (conversationContent) {
+        conversationContent.innerHTML = "";
     }
 }
 

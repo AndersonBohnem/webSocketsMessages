@@ -1,201 +1,169 @@
-header {
+body {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
-    background-color: #000000;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0; 
+    background-image: url(../img/Backgroud.png);
+    background-size: cover;
+    background-position: center;
 }
 
-/* Estilo do título */
-header h1 {
-    font-size: 2rem;
-    margin-right: 20px;
-    text-align: left;
-    color: #ffffff;
+.text {
+    color: #FFF;
+    font-family: "Konkhmer Sleokchher";
+    font-size: 1rem; /* Usar rem para responsividade */
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
 }
 
-/* Estilo da imagem */
-header img {
-    width: 10vw;
-    max-width: 100%;
-    height: auto;
-}
-
-/* ----------------------HEADER ACIMA-------------------------*/
-/* Estilos gerais para o container */
-.container {
+.boxExterna {
     display: flex;
-}
-
-/* Estilo para a seção de conversas */
-.conversas {
-    width: 250px;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os elementos ao topo */
+    width: 90%; /* Usa 90% da largura da tela */
+    max-width: 1366px; /* Limita a largura máxima */
+    height: 80vh; /* Altura relativa */
+    border-radius: 24px;
+    background: radial-gradient(103.88% 58.43% at 56.74% 50%, rgba(0, 133, 255, 0.70) 0%, rgba(0, 52, 101, 0.70) 100%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esconde overflow indesejado */
 }
 
-/* Estilo do título */
-.conversas h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333333;
+.boxSelectChats {
+    width: 30%; /* Usa 30% da largura da box externa */
+    height: auto; /* Altura automática */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaçamento menor */
+    border-radius: 28px;
+    border: 2px solid rgba(88, 130, 193, 0.49);
+    background: rgba(88, 130, 193, 0.28);
+    backdrop-filter: blur(8.9px);
 }
 
-/* Lista de conversas */
-.conversas-list {
-    margin-bottom: 15px;
+.small-logo {
+    width: 70%; /* Usar porcentagem para responsividade */
+    height: auto; 
 }
 
-/* Estilo dos itens de conversa */
-.conversa-item {
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #dddddd;
-    border-radius: 4px; 
-    background-color: #f9f9f9; 
+.boxExternaChat {
+    width: 65%; /* Usa 65% da largura da box externa */
+    height: auto; /* Altura automática */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 28px;
+    border: 2.134px solid rgba(88, 130, 193, 0.49);
+    background: rgba(88, 130, 193, 0.28);
+    backdrop-filter: blur(8.9px);
+    padding: 20px; /* Adiciona espaçamento interno */
+}
+
+.boxChat {
+    width: 100%; /* Preenche toda a largura disponível */
+    max-height: 450px; /* Limita a altura máxima */
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.60);
+    overflow-y: auto; 
+    padding: 10px; 
+}
+
+.bottomChat, .bottomAddChat {
+    width: 100%; /* Largura total do elemento pai */
+    height: 40px;
+    padding: 10px 10px; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: 16px;
     cursor: pointer; 
 }
 
-.conversa-item:hover {
-    background-color: #e6e6e6; 
+.bottomChat {
+    background: #0085FF;
 }
 
-/* Estilo do botão de adicionar conversa */
-.add-conversa {
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50; 
-    color: white; 
-    border: none; 
-    border-radius: 4px; 
-    font-size: 1.5rem; 
+.bottomAddChat {
+    margin-bottom: 10%;
+    background: #0639A3;
+}
+
+.boxSendChatText {
+    display: flex;
+    align-items: center; 
+    width: 100%; /* Para preencher a largura */
+}
+
+.chatText {
+    flex: 1; /* Ocupa todo o espaço disponível */
+    height: 40px;
+    padding: 0 10px; 
+    margin-right: 10px; 
+    border-radius: 7.115px;
+    background: rgba(255, 255, 255, 0.60);
+    border: 1px solid transparent; 
+}
+
+.bottomSendMessage {
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #0085FF;
     cursor: pointer; 
+    background-image: url(../img/Send.png);
+    background-size: 60%; 
+    background-repeat: no-repeat;
+    background-position: center; 
 }
 
-.add-conversa:hover {
-    background-color: #45a049;
+.espaco{
+    margin-top: 100%;
 }
 
-/* Estilo para o aside */
-.conversa-detalhe {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f4f4f4; 
-    border-left: 1px solid #cccccc;
-    border-radius: 8px;
-}
-
-.conversa-detalhe h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333333;
-}
-
-/* Conteúdo da conversa */
-#conversationContent {
-    padding: 10px;
-    background-color: white; 
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-}
-
-
-/*-----------------------------Mensagens------------------- */
-
-/* Estilos gerais para o container */
-.container {
-    display: flex;
-}
-
-/* Estilo para a seção de conversas */
-.conversas {
-    width: 250px;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #cccccc;
-    border-radius: 8px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo do título */
-.conversas h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333333;
-}
-
-/* Lista de conversas */
-.conversas-list {
-    margin-bottom: 15px;
-}
-
-/* Estilo dos itens de conversa */
-.conversa-item {
-    padding: 10px;
-    margin-bottom: 5px;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-}
-
-.conversa-item:hover {
-    background-color: #e6e6e6;
-}
-
-/* Estilo para o aside */
-.conversa-detalhe {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border-left: 1px solid #cccccc;
-    border-radius: 8px;
-}
-
-.conversa-detalhe h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    color: #333333;
-}
-
-/* Conteúdo da conversa */
-#conversationContent {
-    padding: 10px;
-    background-color: white;
-    border: 1px solid #dddddd;
-    border-radius: 4px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-/* Estilo para o container da mensagem */
-.mensagem-container {
-    display: flex;
-    margin-top: 20px;
-}
-
-/* Estilo para o campo de entrada de mensagem */
-.mensagem-container input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
-/* Estilo do botão de enviar mensagem */
-.send-message {
-    padding: 10px;
-    background-color: #4CAF50;
+.bottomClearMessages {
+    background-color: #0085FF; /* Azul claro */
+    margin-bottom: 10px;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 15px; /* Borda arredondada */
+    padding: 6px 10px;
+    font-size: 14px;
     cursor: pointer;
+    margin-left: auto; /* Empurra o botão para a direita */
+    margin-right: 10px; /* Espaço entre o botão limpar e o botão enviar */
+    transition: background-color 0.3s;
 }
 
-.send-message:hover {
-    background-color: #45a049;
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+    .boxExterna {
+        flex-direction: column; /* Muda para coluna em telas menores */
+        height: auto; /* Altura automática */
+    }
+
+    .boxSelectChats, .boxExternaChat {
+        width: 100%; /* Preenche toda a largura */
+        height: auto; /* Altura automática */
+    }
+
+    .small-logo {
+        width: 80%; /* Ajusta o tamanho da logo */
+    }
+
+    .bottomChat, .bottomAddChat {
+        font-size: 14px; /* Diminui o tamanho da fonte */
+    }
+
+    .chatText {
+        width: 70%; /* Ajusta a largura do campo de texto */
+    }
 }
