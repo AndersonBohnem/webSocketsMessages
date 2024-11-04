@@ -7,6 +7,8 @@ active_chats = {}
 async def handler(websocket, path):
     print(f"Novo cliente conectado em {path}")
     
+    path = path.lstrip('/')
+
     if path not in active_chats:
         active_chats[path] = set()
     active_chats[path].add(websocket)
@@ -14,7 +16,7 @@ async def handler(websocket, path):
     try:
         async for message in websocket:
             data = json.loads(message)
-            chat = data['chat']
+            chat = data['chat'].lstrip('/')
             msg = data['message']
             
             print(f"Mensagem recebida: {msg} no chat: {path}")

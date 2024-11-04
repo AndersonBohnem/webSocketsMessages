@@ -1,55 +1,60 @@
 let username;
 let currentChat;
-let socket;
+const sockets = {};
 const messages = JSON.parse(localStorage.getItem("messages")) || {};
 
 username = localStorage.getItem("userCurrent");
 
-currentChat = localStorage.getItem('currentChat') || '/ChatOne';
+currentChat = localStorage.getItem('currentChat') || 'ChatOne';
 
-function connectWebSocket() {
-    const chatPath = `/${currentChat}`;
-    console.log(chatPath);
+function initializeWebSockets() {
+    const chatNames = ['ChatOne', 'ChatTwo', 'ChatThree'];
 
-    if (socket && socket.readyState === WebSocket.OPEN) {
-        socket.close();
-    }
+    chatNames.forEach(chat => {
+        if (!sockets[chat]) {
+            const socket = new WebSocket(`ws://localhost:8888/${chat}`);
 
-    socket = new WebSocket(`ws://localhost:8888${chatPath}`);
+            socket.addEventListener('open', function() {
+                console.log(`Conectado ao WebSocket para ${chat}`);
+            });
 
-    // Evento de conexão aberta
-    socket.addEventListener('open', function(event) {
-        console.log(`Conectado ao WebSocket para ${currentChat}`);
-    });
+            socket.addEventListener('message', function(event) {
+                const data = JSON.parse(event.data);
+                const chatName = data.chat;
 
-    socket.addEventListener('message', function(event) {
-        console.log('Mensagem recebida do servidor:', event.data);  
-        const data = JSON.parse(event.data);
-        if (currentChat === data.chat.substring(1)) {
-            displayMessage(data.message); 
-            if (!messages[currentChat]) {
-                messages[currentChat] = []; 
-            }
-            messages[currentChat].push(data.message);
-            saveMessages();
-        } else {
-            console.log(`Mensagem ignorada. Esperado: ${currentChat}, recebido: ${data.chat}`);
+                if (chatName === chat) {
+                    displayMessage(chatName, data.message);
+                    if (!messages[chatName]) {
+                        messages[chatName] = [];
+                    }
+                    messages[chatName].push(data.message);
+                    saveMessages(chatName);
+                }
+            });
+
+            socket.addEventListener('close', function() {
+                console.log(`Desconectado do WebSocket para ${chat}`);
+            });
+
+            sockets[chat] = socket;
         }
     });
-    }
+
+}
+
+initializeWebSockets();
 
 function selectConversation(conversa) {
-    currentChat = conversa; 
+    currentChat = conversa;
     localStorage.setItem('currentChat', currentChat);
+
     const conversationContent = document.getElementById('conversationContent');
     conversationContent.innerHTML = ''; 
 
     loadMessages();
 
-    connectWebSocket();
-
     if (messages[currentChat]) {
-        messages[currentChat].forEach(msg => displayMessage(msg));
+        messages[currentChat].forEach(msg => displayMessage(currentChat, msg));
     } else {
         conversationContent.innerHTML = `<div>Selecione uma mensagem para ver os detalhes.</div>`;
     }
@@ -62,40 +67,46 @@ function sendMessage() {
     if (message && username && currentChat) {
         const formattedMessage = `${username}: ${message}`;
         
-        socket.send(JSON.stringify({ chat: currentChat, message: formattedMessage })); 
+        const socket = sockets[currentChat];
+        if (socket && socket.readyState === WebSocket.OPEN) {
+            socket.send(JSON.stringify({ chat: currentChat, message: formattedMessage }));
+            console.log(`Mensagem enviada para ${currentChat}: ${formattedMessage}`);
+        } else {
+            console.error(`Não foi possível enviar a mensagem. WebSocket não está aberto para ${currentChat}`);
+            return;
+        }
 
         if (!messages[currentChat]) {
-            messages[currentChat] = []; 
+            messages[currentChat] = [];
         }
         messages[currentChat].push(formattedMessage);
-        
-        saveMessages();
 
-        displayMessage(formattedMessage);
+        saveMessages(currentChat);
+        displayMessage(currentChat, formattedMessage);
 
         messageInput.value = '';
     } else {
         console.log('Digite uma mensagem antes de enviar, nome de usuário ou chat não definido.');
     }
+    
 }
 
 function loadMessages() {
+    console.log("currentChat: " , currentChat)
     if (currentChat) {
-        console.log("true")
         const savedMessages = localStorage.getItem(`messages_${currentChat}`);
         messages[currentChat] = savedMessages ? JSON.parse(savedMessages) : [];
-    } else {
-        console.log("false")
-        messages[currentChat] = [];
     }
 }
 
-function saveMessages() {
-    localStorage.setItem(`messages_${currentChat}`, JSON.stringify(messages[currentChat]));
+function saveMessages(chat) {
+    localStorage.setItem(`messages_${chat}`, JSON.stringify(messages[chat]));
 }
 
-function displayMessage(message) {
-    console.log('Exibindo mensagem:', message);
+function displayMessage(chat, message) {
+    /*console.log(`Exibindo mensagem no ${chat}:`, message);*/
+    if (chat !== currentChat) return;
+
     const conversationContent = document.getElementById('conversationContent');
     const newMessage = document.createElement('div');
     newMessage.textContent = message;
