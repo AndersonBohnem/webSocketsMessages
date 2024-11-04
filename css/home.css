@@ -73,7 +73,7 @@ body {
     padding: 10px; 
 }
 
-.bottomChat, .bottomAddChat {
+.bottomChat, .bottomLogout {
     width: 100%; /* Largura total do elemento pai */
     height: 40px;
     padding: 10px 10px; 
@@ -90,7 +90,7 @@ body {
     background: #0085FF;
 }
 
-.bottomAddChat {
+.bottomLogout {
     margin-bottom: 10%;
     background: #0639A3;
 }
@@ -159,7 +159,7 @@ body {
         width: 80%; /* Ajusta o tamanho da logo */
     }
 
-    .bottomChat, .bottomAddChat {
+    .bottomChat, .bottomLogout {
         font-size: 14px; /* Diminui o tamanho da fonte */
     }
 

@@ -130,3 +130,8 @@ function displayMessage(chat, message) {
     newMessage.textContent = message;
     conversationContent.appendChild(newMessage);
 }
+
+document.getElementById('bottomLogout').addEventListener('click', function() {
+    localStorage.removeItem("userCurrent");
+    window.location.href = "login.html";
+});
