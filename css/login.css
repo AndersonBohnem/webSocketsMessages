@@ -11,14 +11,14 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f2f5;
+    background-image:url(../img/Backgroud.png) ;
 }
 
 /* Container de login */
 .login-container {
     width: 300px;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: rgba(88, 130, 193, 0.296);
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -26,7 +26,7 @@ body {
 
 .login-container h2 {
     margin-bottom: 20px;
-    color: #333333;
+    color: #ffffff;
 }
 
 /* Estilos dos campos do formulário */
@@ -34,22 +34,23 @@ body {
     display: block;
     text-align: left;
     margin-bottom: 5px;
-    color: #555555;
+    color: #ffffff;
 }
 
 .login-container input {
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);;
+    border: 0px solid #cccccc;
+    border-radius: 10px;
 }
 
 /* Botão de login */
 .login-container button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #003465;
     border: none;
     border-radius: 4px;
     color: white;
@@ -58,5 +59,5 @@ body {
 }
 
 .login-container button:hover {
-    background-color: #45a049;
+    background-color: #0085FF;
 }

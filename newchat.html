@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewChat</title>
+    <link rel="stylesheet" href="css/newchat.css">
+
+</head>
+<body>
+    
+    <div class="boxExterna">
+        <div class="boxSelectChats">   
+            <img src="img/logo_NewChat.png" alt="NEWCHAT" class="small-logo" >
+            
+            <section class="conversas">
+                <div class="chatButton">
+                    <button class="bottomChat" onclick="selectConversation('ChatOne')">CHAT_ONE</button>
+                    <P></P>
+                    <button class="bottomChat" onclick="selectConversation('ChatTwo')">CHAT_TWO</button>
+                    <P></P>
+                    <button class="bottomChat" onclick="selectConversation('ChatThree')">CHAT_THREE</button>
+                    <div class="espaco"></div>
+                    <button class="bottomAddChat">ADD CHAT</button>
+                </div>
+            </section>
+            
+        </div>
+        <div class="boxExternaChat">
+            <p class="text" id="chatName">NOME CHAT</p>
+            <div id="conversationContent" class="boxChat"></div> 
+            <p></p>
+            <div class="boxSendChatText">
+                <input class="chatText" type="text" id="messageInput" placeholder="Digite sua mensagem..." />
+                <button  class="bottomSendMessage" onclick="sendMessage()"></button>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+
+</body>
+<script src="js/home.js"></script>
+</html>
+
+
