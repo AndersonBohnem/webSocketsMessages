@@ -1,30 +1,3 @@
-/*
-const validUsers = {
-    anderson: "anderson",
-    luis: "luis"
-};
-
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (validUsers[username] && validUsers[username] === password) {
-        window.location.href = "home.html"; 
-        localStorage.setItem("userCurrent", username);
-    } else {
-        alert('Usuário ou senha incorretos.');
-    }
-});
-*/
-document.getElementById("registerButton").addEventListener("click", function() {
-    window.location.href = "register.html";
-});
-
-
-/*   dadw */ 
-
 const socket = new WebSocket('ws://localhost:8888/login');
 
 function loginUser(username, password) {
@@ -61,4 +34,8 @@ socket.addEventListener('message', (event) => {
         errorMessage.textContent = response.message;
         errorMessage.style.color = 'red';
     }
+});
+
+document.getElementById("registerButton").addEventListener("click", function() {
+    window.location.href = "register.html";
 });
