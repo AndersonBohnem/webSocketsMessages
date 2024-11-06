@@ -73,7 +73,6 @@ document.getElementById("messageInput").addEventListener("keyup", function(event
 
 function clearMessages() {
     let messagesCurrentChat = "messages_" + currentChat;
-    console.log(messagesCurrentChat)
     localStorage.removeItem(messagesCurrentChat);
 
     const conversationContent = document.getElementById("conversationContent");
@@ -114,7 +113,6 @@ function sendMessage() {
 }
 
 function loadMessages() {
-    console.log("currentChat: " , currentChat)
     if (currentChat) {
         const savedMessages = localStorage.getItem(`messages_${currentChat}`);
         messages[currentChat] = savedMessages ? JSON.parse(savedMessages) : [];
