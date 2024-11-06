@@ -24,6 +24,8 @@ function initializeWebSockets() {
 
             socket.addEventListener('message', function(event) {
                 const data = JSON.parse(event.data);
+                console.log("data: " , data);
+                
                 const chatName = data.chat;
 
                 if (chatName === chat) {
@@ -124,16 +126,33 @@ function saveMessages(chat) {
 }
 
 function displayMessage(chat, message) {
-    /*console.log(`Exibindo mensagem no ${chat}:`, message);*/
     if (chat !== currentChat) return;
+
+    const messageAndUserDivision = message;
+    const [userDivision, messageDivision] = messageAndUserDivision.split(/:(.+)/);
+    const usuarioFormatado = userDivision.trim();
 
     const conversationContent = document.getElementById('conversationContent');
     const newMessage = document.createElement('div');
-    newMessage.textContent = message;
-    conversationContent.appendChild(newMessage);
+    newMessage.classList.add('message');
+
+    if (username ===  usuarioFormatado) {
+        newMessage.classList.add('sent'); 
+        newMessage.textContent = messageDivision.trim();
+    } else {
+        newMessage.classList.add('received');
+        newMessage.textContent = message;
+    }  
+    conversationContent.appendChild(newMessage); 
+    scrollToBottom();
 }
 
 document.getElementById('bottomLogout').addEventListener('click', function() {
     localStorage.removeItem("userCurrent");
     window.location.href = "login.html";
 });
+
+function scrollToBottom() {
+    const conversationContent = document.getElementById('conversationContent');
+    conversationContent.scrollTop = conversationContent.scrollHeight;
+}
