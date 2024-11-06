@@ -7,6 +7,10 @@ username = localStorage.getItem("userCurrent");
 
 currentChat = localStorage.getItem('currentChat') || 'ChatOne';
 
+document.addEventListener('DOMContentLoaded', function() {
+    selectConversation('ChatOne');
+});
+
 function initializeWebSockets() {
     const chatNames = ['ChatOne', 'ChatTwo', 'ChatThree'];
 
