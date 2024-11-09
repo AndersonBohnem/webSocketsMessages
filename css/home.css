@@ -12,7 +12,7 @@ body {
 .text {
     color: #FFF;
     font-family: "Konkhmer Sleokchher";
-    font-size: 1rem; /* Usar rem para responsividade */
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -21,24 +21,24 @@ body {
 .boxExterna {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Alinha os elementos ao topo */
-    width: 90%; /* Usa 90% da largura da tela */
-    max-width: 1366px; /* Limita a largura máxima */
-    height: 80vh; /* Altura relativa */
+    align-items: flex-start;
+    width: 90%;
+    max-width: 1366px;
+    height: 80vh;
     border-radius: 24px;
     background: radial-gradient(103.88% 58.43% at 56.74% 50%, rgba(0, 133, 255, 0.70) 0%, rgba(0, 52, 101, 0.70) 100%);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    overflow: hidden; /* Esconde overflow indesejado */
+    overflow: hidden;
 }
 
 .boxSelectChats {
-    width: 30%; /* Usa 30% da largura da box externa */
-    height: auto; /* Altura automática */
+    width: 30%; 
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px; /* Espaçamento menor */
+    gap: 20px;
     border-radius: 28px;
     border: 2px solid rgba(88, 130, 193, 0.49);
     background: rgba(88, 130, 193, 0.28);
@@ -46,13 +46,13 @@ body {
 }
 
 .small-logo {
-    width: 70%; /* Usar porcentagem para responsividade */
+    width: 70%;
     height: auto; 
 }
 
 .boxExternaChat {
-    width: 65%; /* Usa 65% da largura da box externa */
-    height: auto; /* Altura automática */
+    width: 65%;
+    height: auto; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -60,12 +60,12 @@ body {
     border: 2.134px solid rgba(88, 130, 193, 0.49);
     background: rgba(88, 130, 193, 0.28);
     backdrop-filter: blur(8.9px);
-    padding: 20px; /* Adiciona espaçamento interno */
+    padding: 20px;
 }
 
 .boxChat {
-    width: 100%; /* Preenche toda a largura disponível */
-    max-height: 450px; /* Limita a altura máxima */
+    width: 100%;
+    max-height: 330px;
     flex-shrink: 0;
     border-radius: 25px;
     background: rgba(255, 255, 255, 0.60);
@@ -74,7 +74,7 @@ body {
 }
 
 .bottomChat, .bottomLogout {
-    width: 100%; /* Largura total do elemento pai */
+    width: 100%;
     height: 40px;
     padding: 10px 10px; 
     justify-content: center;
@@ -98,11 +98,11 @@ body {
 .boxSendChatText {
     display: flex;
     align-items: center; 
-    width: 100%; /* Para preencher a largura */
+    width: 100%;
 }
 
 .chatText {
-    flex: 1; /* Ocupa todo o espaço disponível */
+    flex: 1;
     height: 40px;
     padding: 0 10px; 
     margin-right: 10px; 
@@ -125,27 +125,27 @@ body {
 }
 
 .espaco{
-    margin-top: 100%;
+    margin-top: 50%;
 }
 
 .bottomClearMessages {
-    background-color: #0085FF; /* Azul claro */
+    background-color: #0085FF;
     margin-bottom: 10px;
     color: white;
     border: none;
-    border-radius: 15px; /* Borda arredondada */
+    border-radius: 15px;
     padding: 6px 10px;
     font-size: 14px;
     cursor: pointer;
-    margin-left: auto; /* Empurra o botão para a direita */
-    margin-right: 10px; /* Espaço entre o botão limpar e o botão enviar */
+    margin-left: auto;
+    margin-right: 10px;
     transition: background-color 0.3s;
 }
 
 .boxChat {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha mensagens recebidas à esquerda */
+    align-items: flex-start;
     width: 100%;
     padding: 10px;
     gap: 8px;
@@ -157,20 +157,20 @@ body {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
     color: #333;
-    max-width: 70%; /* Define a largura máxima */
+    max-width: 70%;
     word-wrap: break-word;
     overflow-wrap: break-word;
 }
 
 .sent {
-    align-self: flex-end; /* Alinha à direita */
+    align-self: flex-end;
     background-color: #0085FF;
     color: white;
     text-align: right;
 }
 
 .received {
-    align-self: flex-start; /* Alinha à esquerda */
+    align-self: flex-start;
     background-color: #aad5fc;
     border: 1px solid rgba(0, 133, 255, 0.5);
     color: #333;
@@ -179,45 +179,45 @@ body {
 
 /* Para Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-    width: 8px; /* Largura da barra de rolagem */
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Cor do fundo da trilha */
+    background-color: #f1f1f1;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #888; /* Cor do polegar */
+    background-color: #888;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* Cor do polegar quando em hover */
+    background-color: #555;
 }
 
 
 /* Media Queries para telas menores */
 @media (max-width: 768px) {
     .boxExterna {
-        flex-direction: column; /* Muda para coluna em telas menores */
-        height: auto; /* Altura automática */
+        flex-direction: column;
+        height: auto;
     }
 
     .boxSelectChats, .boxExternaChat {
-        width: 100%; /* Preenche toda a largura */
-        height: auto; /* Altura automática */
+        width: 100%;
+        height: auto;
     }
 
     .small-logo {
-        width: 80%; /* Ajusta o tamanho da logo */
+        width: 80%;
     }
 
     .bottomChat, .bottomLogout {
-        font-size: 14px; /* Diminui o tamanho da fonte */
+        font-size: 14px;
     }
 
     .chatText {
-        width: 70%; /* Ajusta a largura do campo de texto */
+        width: 70%;
     }
 }
